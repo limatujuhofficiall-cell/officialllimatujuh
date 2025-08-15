@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LIMA TUJUH</title>
+    <style>
+      /* Animation Classes */
+      .fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .slide-up {
+        animation: slideUp 0.8s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* CSS Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      :root {
+        --primary: #2563eb;
+        --primary-dark: #1e40af;
+        --secondary: #f59e0b;
+        --dark: #1f2937;
+        --light: #f9fafb;
+        --gray: #6b7280;
+        --border: 12px;
+        --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo img {
+        height: 40px;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--gray);
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .btn {
+        padding: 12px 24px;
+        border-radius: var(--border);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        display: inline-block;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .btn-outline {
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        background-color: transparent;
+      }
+
+      .btn-outline:hover {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 120px 0;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.08) 0%,
+          rgba(245, 158, 11, 0.08) 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: var(--dark);
+        font-weight: 700;
+        line-height: 1.2;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        color: var(--gray);
+        max-width: 700px;
+        margin: 0 auto 30px;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+      }
+
+      /* About Section */
+      .about {
+        padding: 80px 0;
+        background-color: white;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--primary);
+        border-radius: 2px;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+        color: var(--primary-dark);
+      }
+
+      .section-title p {
+        color: var(--gray);
+        max-width: 700px;
+        margin: 15px auto 0;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .about-img img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-text h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .about-text ul {
+        margin: 20px 0;
+        padding-left: 20px;
+      }
+
+      .about-text ul li {
+        margin-bottom: 10px;
+      }
+
+      /* Programs Section */
+      .programs {
+        padding: 80px 0;
+        background-color: var(--light);
+      }
+
+      .program-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .program-card {
+        background-color: white;
+        border-radius: var(--border);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .program-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .program-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .program-img img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .program-info {
+        padding: 20px;
+      }
+
+      .program-info h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: var(--primary);
+      }
+
+      .program-info p {
+        color: var(--gray);
+        margin-bottom: 15px;
+      }
+
+      /* Events Section */
+      .events {
+        padding: 80px 0;
+        background-color: var(--light);
+      }
+
+      .event-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .event-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .event-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .event-date {
+        background-color: var(--primary);
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .event-date .day {
+        font-size: 1.8rem;
+        line-height: 1;
+      }
+
+      .event-date .month {
+        font-size: 1rem;
+      }
+
+      .event-info {
+        padding: 20px;
+      }
+
+      .event-info h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: var(--primary-dark);
+      }
+
+      .event-info .location {
+        color: var(--gray);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin: 10px 0;
+        font-size: 0.9rem;
+      }
+
+      /* Team Section */
+      .team {
+        padding: 80px 0;
+        background-color: white;
+      }
+
+      .team-members {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .member-card {
+        background-color: var(--light);
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .member-img {
+        width: 100%;
+        height: 250px;
+        background-color: #eee;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .member-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+
+      .member-card:hover .member-img img {
+        transform: scale(1.05);
+      }
+
+      .member-info {
+        padding: 20px;
+      }
+
+      .member-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        color: var(--primary-dark);
+      }
+
+      .member-info p {
+        color: var(--gray);
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .social-links a {
+        color: var(--gray);
+        font-size: 1.1rem;
+      }
+
+      .social-links a:hover {
+        color: var(--primary);
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 80px 0;
+        background-color: var(--light);
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+      }
+
+      .contact-info h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .contact-details {
+        margin-bottom: 30px;
+      }
+
+      .contact-details div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+
+      .contact-form textarea {
+        height: 150px;
+        resize: vertical;
+      }
+
+      .contact-form button {
+        width: 100%;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 60px 0 20px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column ul li a {
+        color: #ddd;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-column ul li a:hover {
+        color: var(--secondary);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background-color: white;
+          flex-direction: column;
+          align-items: center;
+          padding: 40px 0;
+          gap: 30px;
+          transition: left 0.3s;
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .about-img {
+          order: -1;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-btns {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav>
+
+          </div>
+            <span class="logo-text">KARANG TARUNA LIMA TUJUH</span>
+          </div>
+          <div class="nav-links">
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang</a>
+            <a href="#programs">Program</a>
+            <a href="#team">Tim</a>
+            <a href="#events">Agenda</a>
+            <a href="#contact">Kontak</a>
+          </div>
+
+          <button class="mobile-menu-btn">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <h1>Lima Tujuh</h1>
+        <p>
+          Kami hadir dengan semangat kebersamaan, kreativitas, dan pengabdian
+          untuk menciptakan lingkungan yang lebih produktif, berdaya saing, dan
+          harmonis.
+        </p>
+        <div class="hero-btns">
+          <a href="#programs" class="btn btn-primary">Program Kami</a>
+          <a href="#contact" class="btn btn-outline">Bergabung</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>Tentang Kami</h2>
+          <p>
+            Karang Taruna Lima Tujuh adalah organisasi kepemudaan yang berdiri
+            sebagai wadah pembinaan, pengembangan, dan pemberdayaan generasi
+            muda di lingkungan Kujang 57. Kami hadir dengan semangat
+            kebersamaan, kreativitas, dan pengabdian untuk menciptakan
+            lingkungan yang lebih produktif, berdaya saing, dan harmonis. Sejak
+            dibentuk, kami berkomitmen untuk: Menggalang persatuan dan
+            solidaritas antar pemuda. Menyelenggarakan kegiatan sosial, budaya,
+            olahraga, dan kewirausahaan. Memberikan kontribusi nyata bagi
+            kemajuan masyarakat dan lingkungan sekitar
+          </p>
+        </div>
+
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Visi & Misi Kami</h3>
+            <p>
+              Terwujudnya pemuda Lima Tujuh yang kreatif, mandiri, dan berjiwa
+              sosial untuk menciptakan lingkungan yang harmonis dan sejahtera.
+            </p>
+            <ul>
+              <li>Meningkatkan Solidaritas dan Kepedulian Sosial:</li>
+              <li>Menciptakan Lingkungan yang Bersih dan Sehat</li>
+              <li>Membangun Jaringan dan Kemitraan</li>
+              <li>Membangun Ruang Interaksi Positif</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Pelajari Lebih Lanjut</a>
+          </div>
+
+          <div class="about-img">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2c02f8de-2960-4ea7-801b-4eb3875617f6.png"
+              alt="Tim Innovate ID sedang berdiskusi dalam ruang meeting modern dengan papan tulis digital"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+      <div class="container">
+        <div class="section-title">
+          <h2>Program Unggulan</h2>
+          <p>
+            Berbagai program yang kami tawarkan untuk menciptakan dampak positif
+            di masyarakat.
+          </p>
+        </div>
+
+        <div class="program-cards">
+          <!-- Program 1 -->
+          <div class="program-card">
+            <div class="program-img">
+              <img
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4b6a6db5-4c32-4b82-9a7f-c4c6b37c029f.png"
+                alt="Workshop coding untuk pemula dengan peserta dari berbagai usia"
+              />
+            </div>
+            <div class="program-info">
+              <h3>Olahraga, Seni, dan Budaya</h3>
+              <p>
+                Mengadakan turnamen Tenis Meja, bola voli, atau bulu tangkis
+                antar RT/RW, Mengadakan pertunjukan musik, tari, atau drama yang
+                melibatkan pemuda setempat.
+              </p>
+              <a href="#" class="btn btn-outline">Detail Program</a>
+            </div>
+          </div>
+
+          <!-- Program 2 -->
+          <div class="program-card">
+            <div class="program-img">
+              <img
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cb012519-a32b-4194-b5b3-7cd1a63bfbfa.png"
+                alt="Startup pitch night dengan presenter muda di atas panggung"
+              />
+            </div>
+            <div class="program-info">
+              <h3>Sosial dan Lingkungan</h3>
+              <p>
+                Rutin membersihkan lingkungan, gotong royong, atau menata
+                fasilitas umum.
+              </p>
+              <a href="#" class="btn btn-outline">Detail Program</a>
+            </div>
+          </div>
+
+          <!-- Program 3 -->
+          <div class="program-card">
+            <div class="program-img">
+              <img
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/156ed34f-1bcd-4986-8db7-2100bfed1292.png"
+                alt="Anak-anak sedang belajar menggunakan laptop di ruang kelas yang cerah"
+              />
+            </div>
+            <div class="program-info">
+              <h3>Program Wirausaha Muda Berkelanjutan</h3>
+              <p>
+                inisiatif untuk memulai usaha kecil, seperti pelatihan
+                pengolahan makanan beku, hingga membantu pemasaran produk secara
+                digital.
+              </p>
+              <a href="#" class="btn btn-outline">Detail Program</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+      <div class="container">
+        <div class="section-title">
+          <h2>Tim Kami</h2>
+          <p>Organisasi Lima Tujuh</p>
+        </div>
+
+        <div class="team-members">
+          <!-- Member 1 -->
+              <!-- Member 2 -->
+          <div class="member-card">
+             <div class="member-img"></div>
+            <div class="member-info">
+              <h3>Reza Rikit Yusuf</h3>
+              <p>Ketua Karang Taruna</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-medium"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 2 -->
+          <div class="member-card">
+            <div class="member-img"></div>
+            <div class="member-info">
+              <h3>Hibban Akmal Farros</h3>
+              <p>Sekretaris</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-medium"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 3 -->
+          <div class="member-card">
+            <div class="member-img"></div>
+            <div class="member-info">
+              <h3>Raka Aldi Ramdhan S</h3>
+              <p>Bendahara</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 4 -->
+          <div class="member-card">
+            <div class="member-img"></div>
+            <div class="member-info">
+              <h3>COMING SOON</h3>
+              <p>COMING SOON</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+      <div class="container">
+        <div class="section-title">
+          <h2>Agenda Mendatang</h2>
+          <p>
+            Kegiatan dan event yang akan kami selenggarakan dalam waktu dekat.
+          </p>
+        </div>
+
+        <div class="event-cards">
+          <!-- Event 1 -->
+          <div class="event-card">
+            <div class="event-date">
+              <div class="day">17</div>
+              <div class="month">AGUSTUS 2025</div>
+            </div>
+            <div class="event-info">
+              <h3>Perlombaan HUT RI KE 80</h3>
+              <p>Berbagai Macam Lomba yang Menarik</p>
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Sport Center 57</span>
+              </div>
+              <a href="#" class="btn btn-outline">Daftar Sekarang</a>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="event-card">
+            <div class="event-date">
+              <div class="day">23</div>
+              <div class="month">AGUSTUS 2025</div>
+            </div>
+            <div class="event-info">
+              <h3>PENTAS SENI 2025</h3>
+              <p>Acara Puncak HUT RI KE 80 Berbagai Pertunjukkan Spektakuler</p>
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Sport Center 57</span>
+              </div>
+              <a href="#" class="btn btn-outline">Daftar Sekarang</a>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="event-card">
+            <div class="event-date">
+              <div class="day">31</div>
+              <div class="month">AGUSTUS 2025</div>
+            </div>
+            <div class="event-info">
+              <h3>Jalan Santai Dan Doorprize</h3>
+              <p>Ikutilah Jalan Santai Pada Hari Minggu 31 Agustus 2025</p>
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Sport Center 57</span>
+              </div>
+              <a href="#" class="btn btn-outline">Daftar Sekarang</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Hubungi Kami</h2>
+          <p>
+            Kami siap menjawab pertanyaan Anda dan mendengar masukan untuk
+            kolaborasi.
+          </p>
+        </div>
+
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Informasi Kontak</h3>
+
+            <div class="contact-details">
+              <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <span
+                  >Perumahan Citra Kebun Mas RT 57 RW 11 BENGLE, MAJALAYA, KAB.
+                  KARAWANG</span
+                >
+              </div>
+              <div>
+                
+              <div>
+                <i class="fas fa-envelope"></i>
+                <span>limatujuhofficiall@gmail.com</span>
+              </div>
+            </div>
+
+            <h3>Jam Operasional</h3>
+            <p>Senin - Jumat: 09:00 - 17:00 WIB</p>
+          </div>
+
+          <form class="contact-form">
+            <h3>Kirim Pesan</h3>
+            <input type="text" placeholder="Nama Lengkap" required />
+            <input type="email" placeholder="Alamat Email" required />
+            <input type="tel" placeholder="Nomor WhatsApp" />
+            <textarea placeholder="Pesan Anda" required></textarea>
+            <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Tentang Lima Tujuh</h3>
+            <p>
+              Kami hadir dengan semangat kebersamaan, kreativitas, dan pengabdian untuk menciptakan lingkungan yang lebih produktif, berdaya saing, dan harmonis.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h3>Tautan Cepat</h3>
+            <ul>
+              <li><a href="#home">Beranda</a></li>
+              <li><a href="#about">Tentang Kami</a></li>
+              <li><a href="#programs">Program</a></li>
+              <li><a href="#team">Tim</a></li>
+              <li><a href="#contact">Kontak</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Program</h3>
+            <ul>
+              <li><a href="#">Lima Tujuh</a></li>
+              <li><a href="#">Fifty Seven</a></li>
+              <li><a href="#">Digital Youth</a></li>
+              <li><a href="#">Kemitraan</a></li>
+              <li><a href="#">Volunteer</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Sosial Media</h3>
+            <ul>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">LinkedIn</a></li>
+              <li><a href="#">YouTube</a></li>
+              <li><a href="#">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2025 Lima Tujuh. Seluruh hak cipta dilindungi.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Mobile Menu Toggle
+      const mobileBtn = document.querySelector(".mobile-menu-btn");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Smooth scrolling for all links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          if (navLinks.classList.contains("active")) {
+            navLinks.classList.remove("active");
+          }
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Form submission (mock example)
+      const contactForm = document.querySelector(".contact-form");
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert(
+          "Terima kasih atas pesan Anda! Kami akan segera menghubungi Anda kembali."
+        );
+        this.reset();
+      });
+    </script>
+  </body>
+</html>
